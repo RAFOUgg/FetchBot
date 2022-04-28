@@ -12,7 +12,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name="RAFOUgg\FetchBot | r!", type=3)
+    activity = discord.Game(name=f"RAFOUgg\FetchBot | {client.commands_prefix}", type=3)
     await client.change_presence(status=discord.Status.idle, activity=activity)
     print("Client ready to use !")
 
