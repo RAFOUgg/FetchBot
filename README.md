@@ -14,5 +14,5 @@ Description : A discord bot to fetch the number of message sent in a channel. (H
 </p>
 <br>
 <p align="center">
-<img src="https://cdn.discordapp.com/attachments/877305045148913665/969335790943490088/unknown.png" width="526", height="285">
+<img src="https://cdn.discordapp.com/attachments/877305045148913665/969335790943490088/unknown.png" width="105", height="57">
 </p>
