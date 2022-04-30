@@ -80,6 +80,12 @@ async def creds(ctx):
     embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
     await ctx.send(embed=embed)
 
+#[PURGE CHANNEL]
+@client.command()
+async def purge(ctx, amount: int):
+    await ctx.channel.purge(limit=amount)
+    await ctx.send(f"The messages are deleted !")
+
 #[RICKROLLED]
 @client.command()
 async def rick(ctx):
