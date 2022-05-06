@@ -12,7 +12,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name=f"RAFOUgg\FetchBot | {client.commands_prefix}", type=3)
+    activity = discord.Game(name="RAFOUgg\FetchBot | r!", type=3)
     await client.change_presence(status=discord.Status.idle, activity=activity)
     print("Client ready to use !")
 
@@ -33,7 +33,7 @@ async def fetch(ctx):
     try:
         fetch_target = ctx.message.mentions[0]
     except:
-        return await ctx.reply(f"**Error in the command, please use __{client.command_prefix}fetch @user #channel__**")
+        return await ctx.reply(f"**Error in the command, please use __{client.command_prefix}fetch #user #channel__**")
 
     target_messages_counter = 0
     total_messages_counter = 0
@@ -55,6 +55,7 @@ async def fetch(ctx):
     await ctx.reply(embed=embed)
 
 
+
 #[SECRETSTORY]
 @client.command()
 async def secretstory(ctx):
@@ -69,7 +70,7 @@ async def secretstory(ctx):
 
 
 #[CREDENTIALS]
-@client.command()
+#client.command()
 async def creds(ctx): 
     dp_name = str(ctx.message.author)[:-5]
     embed = discord.Embed()
@@ -80,11 +81,54 @@ async def creds(ctx):
     embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
     await ctx.send(embed=embed)
 
-#[PURGE CHANNEL]
+#[SALVIA CALC MESSAGES]
+@client.command()
+async def scalc(ctx, filtrage=None):
+    if not filtrage:
+        return await ctx.reply(f"**Error in the command, please use __{client.command_prefix}scalc [filtrage].__**")
+    filtrage = float(filtrage)
+    dp_name = str(ctx.message.author)[:-5]
+    embed = discord.Embed(title="Saliva Dosages Calculator :")
+    embed.set_author(name=dp_name, icon_url=ctx.message.author.avatar_url)
+    #SET DOSAGES
+    Light = 0.25 / filtrage
+    Common = 0.5 / filtrage
+    Strong = 0.75 / filtrage
+    Heavy = 1 / filtrage
+    PLight = round(Light,3)
+    PCommon = round(Common,3)
+    PStrong = round(Strong,3)
+    PHeavy = round(Heavy,3)
+
+    embed.add_field(name="__Dosages__", value=f"(*Smocked & Sublingual*) \n **Light**:{PLight}g \n **Common**:{PCommon}g \n **Strong**:{PStrong}g \n **Heavy**:{PHeavy}g")
+    embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
+    await ctx.send(embed=embed)
+
+#[BIODISPINIBILITE KETAMINE]
+@client.command()
+async def bioketa(ctx):
+    dp_name = str(ctx.message.author)[:-5]
+    embed = discord.Embed(title="Bioavailability of Kétamine :")
+    embed.set_author(name=dp_name, icon_url=ctx.message.author.avatar_url)
+    embed.add_field(name="Bioavailability", value=f"**Intravenous**: 100% \n **Intramuscular**: 93% \n **Nasal**: 25%-50% \n **Rectal**: 20% \n **Sublingual**: 30% \n **Oral** 16%-24% \n")
+    embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
+    await ctx.send(embed=embed)
+
+#[COMBOCHART]
+async def combo(ctx):
+    dp_name = str(ctx.message.author)[:-5]
+    embed = discord.Embed(title="Combos :")
+    embed.set_author(name=dp_name, icon_url=ctx.message.author.avatar_url)
+    embed.add_field(name="Combochart", value=f"[__Combochart__]()")
+    embed.add_field(name="Combochart", value=f"[__Combo-Checker__](https://combi-checker.ch/")
+    embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
+    await ctx.send(embed=embed)
+#[CLEAR MESSAGES]
 @client.command()
 async def purge(ctx, amount: int):
     await ctx.channel.purge(limit=amount)
     await ctx.send(f"The messages are deleted !")
+
 
 #[RICKROLLED]
 @client.command()
