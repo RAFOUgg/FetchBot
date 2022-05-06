@@ -85,7 +85,7 @@ async def creds(ctx):
 @client.command()
 async def scalc(ctx, filtrage=None):
     if not filtrage:
-        return await ctx.reply(f"**Error in the command, please use __{client.command_prefix}scalc [filtrage].__**")
+        return await ctx.reply(f"**Error in the command, please use __{client.command_prefix}scalc [filtering].__**")
     filtrage = float(filtrage)
     dp_name = str(ctx.message.author)[:-5]
     embed = discord.Embed(title="Saliva Dosages Calculator :")
@@ -115,14 +115,15 @@ async def bioketa(ctx):
     await ctx.send(embed=embed)
 
 #[COMBOCHART]
-async def combo(ctx):
-    dp_name = str(ctx.message.author)[:-5]
-    embed = discord.Embed(title="Combos :")
-    embed.set_author(name=dp_name, icon_url=ctx.message.author.avatar_url)
-    embed.add_field(name="Combochart", value=f"[__Combochart__]()")
-    embed.add_field(name="Combochart", value=f"[__Combo-Checker__](https://combi-checker.ch/")
-    embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
-    await ctx.send(embed=embed)
+@client.command()
+async def combochart(ctx):
+    await ctx.reply("https://raw.githubusercontent.com/RAFOUgg/FetchBot/main/bin/ComboChart-v4.jpg")
+
+#[BREATH HELPING]
+@client.command()
+async def breath(ctx):
+    await ctx.reply("https://raw.githubusercontent.com/RAFOUgg/FetchBot/main/bin/breathe2.gif")
+
 #[CLEAR MESSAGES]
 @client.command()
 async def purge(ctx, amount: int):
@@ -170,6 +171,10 @@ async def help(ctx):
     embed.set_author(name=f"Help:")
     embed.add_field(name='fetch',value='`Fetch the statistic of sent messages by a member.`',inline=False)
     embed.add_field(name='links',value='`Show the importance links for risks reduction.`',inline=False)
+    embed.add_field(name='breath',value='`Show a breath helping gif.`',inline=False)
+    embed.add_field(name='combochart',value='`Show the combochart-v.4 image.`',inline=False)
+    embed.add_field(name='bioketa',value='`Show the bioavailability of kétamine.`',inline=False)
+    embed.add_field(name='scalc',value='`Calcul the dosages for salvia.`',inline=False)
     embed.add_field(name='creds',value='`Show credentials of the bot.`',inline=False)
     embed.add_field(name='rick',value='`Send a RickRoll links.`',inline=False)
     embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
