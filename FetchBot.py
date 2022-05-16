@@ -33,7 +33,7 @@ async def fetch(ctx):
     try:
         fetch_target = ctx.message.mentions[0]
     except:
-        return await ctx.reply(f"**Error in the command, please use __{client.command_prefix}fetch #user #channel__**")
+        return await ctx.reply(f"**Error in the command, please use __{client.command_prefix}fetch @user #channel__**")
 
     target_messages_counter = 0
     total_messages_counter = 0
@@ -70,7 +70,7 @@ async def secretstory(ctx):
 
 
 #[CREDENTIALS]
-#client.command()
+@client.command()
 async def creds(ctx): 
     dp_name = str(ctx.message.author)[:-5]
     embed = discord.Embed()
@@ -100,7 +100,7 @@ async def scalc(ctx, filtrage=None):
     PStrong = round(Strong,3)
     PHeavy = round(Heavy,3)
 
-    embed.add_field(name="__Dosages__", value=f"(*Smocked & Sublingual*) \n **Light**:{PLight}g \n **Common**:{PCommon}g \n **Strong**:{PStrong}g \n **Heavy**:{PHeavy}g")
+    embed.add_field(name=f"__Dosages for x{filtrage}__", value=f"(*Smocked & Sublingual*) \n **Light**:{PLight}g \n **Common**:{PCommon}g \n **Strong**:{PStrong}g \n **Heavy**:{PHeavy}g")
     embed.set_footer(text="Made by RAFOU , KodeSade and OverTube !")
     await ctx.send(embed=embed)
 
@@ -121,7 +121,7 @@ async def combochart(ctx):
 
 #[BREATH HELPING]
 @client.command()
-async def breath(ctx):
+async def breathe(ctx):
     await ctx.reply("https://raw.githubusercontent.com/RAFOUgg/FetchBot/main/bin/breathe2.gif")
 
 #[CLEAR MESSAGES]
